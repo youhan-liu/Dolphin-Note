@@ -14,7 +14,7 @@
 //ScreenSeq_structdef ScreenDataSeq = {0};
 FlashSeq_structdef FlashScreenDataSeq = {0};
 unsigned int DataFrame_in_Flash = 0;
-unsigned long time_base = 0;
+unsigned int time_base = 0;
 unsigned char up_down_flag = 0;
 unsigned char pen_data_ready = 0;
 unsigned char net_complete_flag = 0;

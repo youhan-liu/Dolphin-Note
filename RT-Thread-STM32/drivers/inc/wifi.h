@@ -37,7 +37,7 @@ extern unsigned char Board_ID[2];
 extern unsigned char Phone_IP[4];
 extern unsigned char Board_IP[4];
 extern unsigned char wifi_data_len;
-static unsigned char is_First_connect = 1;
+extern unsigned char is_First_connect;
 
 void wifi_data_deal(unsigned char *data_buf,unsigned char num);
 void wifi_send_pen_data(unsigned char * data_buffer, unsigned char pen_cnt);

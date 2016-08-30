@@ -97,8 +97,6 @@ static void cc3200_thread_entry(void* parameter)
 	static unsigned char Main_Fuction_state = 0;
 	rt_sem_init(&Net_complete_seqSem , "netseqSem", 0, RT_IPC_FLAG_FIFO);//初始化信号量，初始值为1，该信号量会被第一个持有的线程清除
 	cc3200_init();
-	
-//	wifi_reset();
 //	SPI_FLASH_Init();
 //	SPI_FLASH_ChipErase();
 //	ScreenRecSeqInit();
@@ -175,6 +173,7 @@ static void cc3200_thread_entry(void* parameter)
 					{
 						meeting_end_flag = 0;
 						net_complete_flag = 0;
+						is_First_connect = 1;
 						Phone_IP[0] = 0;
 						Phone_IP[1] = 0;
 						Phone_IP[2] = 0;

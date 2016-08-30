@@ -18,6 +18,7 @@ unsigned char Phone_IP[4] = {0};
 unsigned char Board_IP[4] = {0};
 unsigned char Bar_code[10] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01};
 unsigned char wifi_data_len = 0;
+unsigned char is_First_connect = 1;
 //void insert(void *a,void *ins,int index,size_t n,size_t width)
 //{
 //	char *tmp = malloc(width * (n - index - 1));
@@ -234,7 +235,7 @@ void wifi_data_deal(unsigned char *data_buf, unsigned char num)
 					}
 					//°×°åID
 					Board_ID[0] = *(data_buf + 35);
-					Board_ID[1] = *(data_buf + 36);	
+					Board_ID[1] = *(data_buf + 36);
 					wifi_ack_send(0x76, 0);
 				}
 				else

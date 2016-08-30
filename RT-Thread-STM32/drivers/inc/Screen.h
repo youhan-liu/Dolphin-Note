@@ -40,7 +40,7 @@ typedef struct
 	unsigned int			SeqReadAddr;
 }FlashSeq_structdef;
 
-extern unsigned long time_base;
+extern unsigned int time_base;
 extern unsigned char up_down_flag;
 extern unsigned char pen_data_ready;
 extern unsigned char net_complete_flag;
