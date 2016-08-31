@@ -15,7 +15,7 @@ const u8* Local_Port  = "9002";		// 本地端口号
 const u8* PORT_Server = "9001";		// 远程端口号
 const u8* IP_Server   = "192.168.100.255";		// 远程IP
 const u8* PORT = "0";
-const u8* IP   = "0.0.0.0";
+const u8* IP   = "192.168.100.255";
 const u8 *CC3200_WORKMODE_TBL[4]={"TCPS", "TCPC", "UDPS", "UDPC"};		//4种工作模式
 
 //static void* timer_heartbeat;//定义空地址指针，指向四个定时器句柄地址，节省空间
