@@ -184,6 +184,10 @@ static void cc3200_thread_entry(void* parameter)
 						Phone_IP[1] = 0;
 						Phone_IP[2] = 0;
 						Phone_IP[3] = 0;
+						ledSet(LED_REC, false);
+						ledSet(LED_SNP, false);
+//						ledseq_run(LED_REC, seq_power_on);
+//						ledseq_stop(LED_SNP, seq_flash_3_times);
 						ledseq_stop(LED_NET, seq_alwayson);
 						ledseq_run(LED_NET, seq_alive);
 						Main_Fuction_state = 1;
@@ -198,10 +202,13 @@ static void cc3200_thread_entry(void* parameter)
 				}
 				else if(net_complete_flag == 0)
 				{//断网后，进入连接响应程序，此时需要判断请求连接的白板ID-->手机ID-->判断IP是否改变-->是否需要重新配置UDPC
-					
+					ledSet(LED_REC, false);
+					ledSet(LED_SNP, false);
 					ledseq_stop(LED_NET, seq_alwayson);
 					ledseq_run(LED_NET, seq_alive);
 					cc3200_reconnect();
+					ledseq_run(LED_SNP, seq_power_on);
+					ledseq_run(LED_REC, seq_power_on);
 					ledseq_stop(LED_NET, seq_alive);
 					ledseq_run(LED_NET, seq_alwayson);
 					Uart2_Put_Buf(wifi_data_to_send , 17);

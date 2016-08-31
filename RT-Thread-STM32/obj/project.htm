@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\obj\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\obj\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Aug 31 11:37:53 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Aug 31 13:21:21 2016
 <BR><P>
 <H3>Maximum Stack Usage =        448 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -760,8 +760,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;assert_failed
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_Hardware_Reset
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_init
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledSet
+<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_init
 </UL>
 
 <P><STRONG><a name="[8b]"></a>KeyRead</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, key.o(i.KeyRead))
@@ -1301,7 +1301,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateActive
+<BR>[Called By]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_thread_entry
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateActive
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;runLedseq
 </UL>
 
@@ -2461,7 +2462,7 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> application.o(i.rt_application_init)
 </UL>
-<P><STRONG><a name="[52]"></a>cc3200_thread_entry</STRONG> (Thumb, 504 bytes, Stack size 0 bytes, application.o(i.cc3200_thread_entry))
+<P><STRONG><a name="[52]"></a>cc3200_thread_entry</STRONG> (Thumb, 552 bytes, Stack size 0 bytes, application.o(i.cc3200_thread_entry))
 <BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
 <LI>Call Chain = cc3200_thread_entry &rArr; cc3200_set_udpPort &rArr; ledseq_stop &rArr; runLedseq &rArr; rt_sem_take &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
@@ -2472,6 +2473,7 @@ Local Symbols
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_sem_init
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledseq_stop
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledseq_run
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledSet
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_start
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_set_udpPort
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_set_udpIP
@@ -2559,10 +2561,10 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = runLedseq &rArr; rt_sem_take &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_sem_release
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledSet
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_control
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_sem_take
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;updateActive
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledSet
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rt_timer_start
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledseq_stop
