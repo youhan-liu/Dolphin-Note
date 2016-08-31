@@ -122,6 +122,28 @@ void wifi_ack_send(unsigned char code, unsigned short para) //发送应答信息指令0x
 			wifi_data_to_send[16] = 0xED;		
 			wifi_data_len=17;	//发送字符串长度
 			break;
+		case(0x78):
+			wifi_data_to_send[5] = 0x08;
+			wifi_data_to_send[6] = 0x00;
+	
+			wifi_data_to_send[7] = Board_IP[0];
+			wifi_data_to_send[8] = Board_IP[1];
+			wifi_data_to_send[9] = Board_IP[2];
+			wifi_data_to_send[10] = Board_IP[3];
+
+			wifi_data_to_send[11] = Board_ID[0];
+			wifi_data_to_send[12] = Board_ID[1];
+			wifi_data_to_send[13] = Phone_ID[14];
+			wifi_data_to_send[14] = Phone_ID[15];
+			sum = 0;
+			for(i = 0; i < 15; i ++)
+			{
+				sum += wifi_data_to_send[i];
+			}	
+			wifi_data_to_send[15] = sum;
+			wifi_data_to_send[16] = 0xED;		
+			wifi_data_len=17;	//发送字符串长度
+			break;
 		case 0xA1:
 			//普通状态应答
 			wifi_data_to_send[5] = 0x02;
@@ -263,6 +285,39 @@ void wifi_data_deal(unsigned char *data_buf, unsigned char num)
 				}
 			}
 			break;
+		case 0x78://心跳包
+			for(i = 0; i < 10; i++)//任何情况下收到连接请求都需要判断二维码是否正确
+			{
+				if(*(data_buf + 27 + i) != Bar_code[i])
+				{
+					Bar_code_err_flag = 1;
+					break;
+				}
+			}
+			if(Bar_code_err_flag == 1)//二维码错误则不响应连接请求
+				searching_flag = 0;
+			else
+			{
+//				//if()
+//				Phone_IP[0]	= *(data_buf + 7);
+//				Phone_IP[1]	= *(data_buf + 8);
+//				Phone_IP[2]	= *(data_buf + 9);
+//				Phone_IP[3]	= *(data_buf + 10);
+				//手机ID
+				for(i = 0; i < 16; i ++)
+				{
+					Phone_ID[i] = *(data_buf + 11 + i);
+					//Phone_ID[1] = *(data_buf + 26);
+				}
+				//白板ID
+//				Board_ID[0] = *(data_buf + 35);
+//				Board_ID[1] = *(data_buf + 36);
+				wifi_ack_send(0x78, 0);
+				searching_flag = 1;
+			}
+//			wifi_ack_send(0x77, 0);
+//			is_idle_flag = 1;
+			break;
 		case 0xA9://心跳包
 			wifi_ack_send(0x77, 0);
 			is_idle_flag = 1;
@@ -343,7 +398,8 @@ void wifi_data_deal(unsigned char *data_buf, unsigned char num)
 		case 0x73:{	//收到对时请求
 					//*增加计时器清零指令,开启计时器指令
 			time_base = 0;
-			wifi_ack_send(0x74,0);
+			//wifi_ack_send(0x74,0);
+			time_checking_flag = 1;
 			break;
 			}
 		case 0x79:{//收到指示信息控制

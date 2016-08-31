@@ -48,6 +48,8 @@ extern unsigned char net_reconnect_flag;
 extern unsigned char net_reset_flag;
 extern unsigned char is_idle_flag;
 extern unsigned char meeting_end_flag;
+extern unsigned char time_checking_flag;
+extern unsigned char searching_flag;
 void Screen_data_analize(unsigned char *data_buf,unsigned char num);
 void ScreenRecSeqInit(void);
 State_typedef ScreenRecSeqIn(unsigned char *_DataFrame, unsigned char _DataLen);

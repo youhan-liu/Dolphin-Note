@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\obj\project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\obj\project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Aug 31 08:53:13 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Wed Aug 31 11:37:53 2016
 <BR><P>
 <H3>Maximum Stack Usage =        448 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1239,8 +1239,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_thread_entry
 </UL>
 
-<P><STRONG><a name="[d7]"></a>cc3200_set_udpPort</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, cc3200.o(i.cc3200_set_udpPort))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
+<P><STRONG><a name="[d7]"></a>cc3200_set_udpPort</STRONG> (Thumb, 140 bytes, Stack size 32 bytes, cc3200.o(i.cc3200_set_udpPort))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
 <LI>Call Chain = cc3200_set_udpPort &rArr; ledseq_stop &rArr; runLedseq &rArr; rt_sem_take &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ReadInputDataBit
@@ -2393,14 +2393,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_init
 </UL>
 
-<P><STRONG><a name="[dd]"></a>wifi_ack_send</STRONG> (Thumb, 404 bytes, Stack size 12 bytes, wifi.o(i.wifi_ack_send))
+<P><STRONG><a name="[dd]"></a>wifi_ack_send</STRONG> (Thumb, 508 bytes, Stack size 12 bytes, wifi.o(i.wifi_ack_send))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = wifi_ack_send
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifi_data_deal
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cc3200_thread_entry
 </UL>
 
-<P><STRONG><a name="[ac]"></a>wifi_data_deal</STRONG> (Thumb, 490 bytes, Stack size 28 bytes, wifi.o(i.wifi_data_deal))
+<P><STRONG><a name="[ac]"></a>wifi_data_deal</STRONG> (Thumb, 578 bytes, Stack size 28 bytes, wifi.o(i.wifi_data_deal))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = wifi_data_deal &rArr; wifi_ack_send
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifi_ack_send
@@ -2461,9 +2461,9 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> application.o(i.rt_application_init)
 </UL>
-<P><STRONG><a name="[52]"></a>cc3200_thread_entry</STRONG> (Thumb, 458 bytes, Stack size 0 bytes, application.o(i.cc3200_thread_entry))
-<BR><BR>[Stack]<UL><LI>Max Depth = 352 + Unknown Stack Size
-<LI>Call Chain = cc3200_thread_entry &rArr; cc3200_start &rArr; cc3200_get_staip &rArr; cc3200_send_cmd &rArr; rt_thread_delay &rArr; rt_thread_sleep &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
+<P><STRONG><a name="[52]"></a>cc3200_thread_entry</STRONG> (Thumb, 504 bytes, Stack size 0 bytes, application.o(i.cc3200_thread_entry))
+<BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
+<LI>Call Chain = cc3200_thread_entry &rArr; cc3200_set_udpPort &rArr; ledseq_stop &rArr; runLedseq &rArr; rt_sem_take &rArr; rt_timer_start &rArr; rt_schedule &rArr; _rt_scheduler_stack_check &rArr; rt_kprintf &rArr; rt_vsnprintf &rArr; print_number
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifi_reset
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wifi_ack_send

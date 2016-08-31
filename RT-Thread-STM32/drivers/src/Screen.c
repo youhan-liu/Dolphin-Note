@@ -22,6 +22,8 @@ unsigned char net_reconnect_flag = 0;
 unsigned char net_reset_flag = 0;
 unsigned char is_idle_flag = 0;
 unsigned char meeting_end_flag = 0;
+unsigned char time_checking_flag = 0;
+unsigned char searching_flag = 0;
 unsigned char pen_data[200] = {0};//笔迹数据
 
 void Screen_data_analize(unsigned char *data_buf,unsigned char num)//触屏协议处理
