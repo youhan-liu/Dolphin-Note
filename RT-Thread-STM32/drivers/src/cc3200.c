@@ -324,8 +324,8 @@ void cc3200_set_udpIP(void)
 	}
 
 //	ledseq_stop(LED_NET, seq_alive);
-	ledseq_stop(LED_NET, seq_power_on);
-	ledseq_run(LED_NET, seq_power_on);
+	ledseq_stop(LED_NET, seq_alwayson);
+	ledseq_run(LED_NET, seq_alwayson);
 	net_complete_flag = 1;
 }
 

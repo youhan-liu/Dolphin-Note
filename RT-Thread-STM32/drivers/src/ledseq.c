@@ -23,7 +23,7 @@ static ledseq_t * sequences[] = //LED闪烁序列定义
 	seq_flash_80_waring,	//充电中
 	seq_flash_60_waring,	//bootloader指示
 	seq_armed,		//警告
-	seq_calibrating,//校准中
+	seq_alwayson,//校准中
 	seq_error,	//校准完成
 	seq_alive,		//正常运行
 	seq_flash_3_times,		//连接成功
@@ -47,10 +47,9 @@ ledseq_t seq_armed[] =
 	{    0, LEDSEQ_STOP},
 };
 
-ledseq_t seq_calibrating[] = 
+ledseq_t seq_alwayson[] = 
 {
-	{ true, LEDSEQ_WAITMS(250)},
-	{false, LEDSEQ_WAITMS(250)},
+	{ true, LEDSEQ_WAITMS(1000)},
 	{    0, LEDSEQ_LOOP},
 };
 
@@ -83,7 +82,7 @@ ledseq_t seq_flash_3_times[] =
 ledseq_t seq_power_on[] = 
 {
 	{ true, LEDSEQ_WAITMS(1000)},
-	{    0, LEDSEQ_LOOP},
+	{    1, LEDSEQ_STOP},
 };
 
 ledseq_t seq_flash_80_waring[] = 

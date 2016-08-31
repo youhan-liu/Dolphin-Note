@@ -32,7 +32,7 @@ void ledseqSetTimes(ledseq_t *sequence, rt_int32_t onTime, rt_int32_t offTime);
 
 //Existing led sequences
 extern ledseq_t seq_armed[];
-extern ledseq_t seq_calibrating[];
+extern ledseq_t seq_alwayson[];
 extern ledseq_t seq_error[];
 extern ledseq_t seq_alive[];
 extern ledseq_t seq_lowbat[];
