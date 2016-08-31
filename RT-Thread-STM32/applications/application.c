@@ -119,6 +119,11 @@ static void cc3200_thread_entry(void* parameter)
 					ledseq_stop(LED_NET, seq_alive);
 					wifi_reset();
 					Main_Fuction_state = 0;
+				}	
+				if(searching_flag == 1)
+				{
+					searching_flag = 0;
+					Uart2_Put_Buf(wifi_data_to_send , 17);
 				}				
 				if(!(Phone_IP[0] == 0))
 					Main_Fuction_state = 3;
@@ -128,11 +133,7 @@ static void cc3200_thread_entry(void* parameter)
 				Main_Fuction_state = 4;
 				break;
 			case 4://等待手机连接
-				if(searching_flag == 1)
-				{
-					searching_flag = 0;
-					Uart2_Put_Buf(wifi_data_to_send , 17);
-				}
+				
 				if(net_complete_flag == 1)
 				{
 					Uart2_Put_Buf(wifi_data_to_send , 17);
