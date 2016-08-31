@@ -10,7 +10,7 @@
  * Change Logs:
  * Date           Author       Notes
  * 2009-01-05     Bernard      the first version
- * 2013-07-12     aozima       update for auto initial.
+
  */
 
 /**
